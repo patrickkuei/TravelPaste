@@ -13,7 +13,8 @@ const config: Config = {
       },
       colors: {
         'section-bg': '#DCD6F7',
-        'main-bg': '#F4EEFF'
+        'main-bg': '#F4EEFF',
+        'primary-1': '#424874',
       },
     },
   },
