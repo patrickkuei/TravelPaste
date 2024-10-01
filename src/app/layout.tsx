@@ -23,6 +23,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </div>
+        <div id="portal-root" />
       </body>
     </html>
   );

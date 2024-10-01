@@ -11,7 +11,10 @@ const Search = () => {
   };
 
   return (
-    <div className="relative flex items-center" onClick={handleInputClick}>
+    <div
+      className="relative flex flex-1 items-center"
+      onClick={handleInputClick}
+    >
       <Image
         width={24}
         height={24}
@@ -24,7 +27,7 @@ const Search = () => {
         type="text"
         name="search"
         placeholder="Where do you plan to visit"
-        className="rounded-[10px] pl-8 py-1 w-full ring-1 ring-inset ring-gray-200 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-gray-600"
+        className="rounded-[10px] pl-8 py-1 w-full ring-1 ring-inset ring-gray-200 transition duration-200 ease-out focus:outline-none focus:ring-1 focus:ring-inset focus:ring-gray-600 autofill:outline-none autofill:ring-1 autofill:ring-inset autofill:ring-gray-600"
       />
     </div>
   );
