@@ -2,38 +2,31 @@
 
 import Post from "./Post";
 import MockPosts from "@/mocks/mockPosts";
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import { MouseEvent, useCallback, useEffect, useRef, useState } from "react";
 import SearchPage from "./SearchPage";
 import Image from "next/image";
 
 export default function Home() {
   const [data, setData] = useState(MockPosts);
   const [loading, setLoading] = useState(false);
-  const observerRef = useRef(null);
+  const observerRef = useCallback(
+    (node: HTMLDivElement) => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const target = entries[0];
+          if (target.isIntersecting && !loading) {
+            loadMoreData();
+          }
+        },
+        { threshold: 1.0 }
+      );
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const target = entries[0];
-        if (target.isIntersecting && !loading) {
-          loadMoreData();
-        }
-      },
-      { threshold: 1.0 }
-    );
-
-    const currentObserverRef = observerRef.current;
-
-    if (currentObserverRef) {
-      observer.observe(currentObserverRef);
-    }
-
-    return () => {
-      if (currentObserverRef) {
-        observer.unobserve(currentObserverRef);
+      if (node) {
+        observer.observe(node);
       }
-    };
-  }, [loading]);
+    },
+    [loading]
+  );
 
   const loadMoreData = () => {
     setLoading(true);
@@ -67,8 +60,19 @@ export default function Home() {
     setIsSearchClick(false);
   };
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
-    <div className="mt-[56px] mb-[54px] overflow-y-auto no-scrollbar w-full p-4 flex flex-col gap-4">
+    <div
+      className={`mt-[56px] mb-[54px] overflow-y-auto no-scrollbar w-full p-4 flex flex-col gap-4 transition-transform duration-200 ${
+        isVisible ? "translate-x-0" : "translate-x-full"
+      }`}
+    >
       <div
         className={`flex bg-white py-1 rounded-[10px] ring-1 ring-inset ring-gray-200 text-[#9E9E9E] transition duration-150 ease-out ${
           isSearchClick ? "outline-none ring-1 ring-inset ring-gray-600" : ""

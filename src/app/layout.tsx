@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="flex justify-center w-screen h-screen overflow-hidden select-none">
-          <div className="flex justify-center w-[393px] bg-main-bg">
+          <div className="flex justify-center w-[393px] bg-main-bg overflow-hidden">
             <Header />
             {children}
             <Footer />

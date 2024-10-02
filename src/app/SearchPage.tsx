@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Portal from "./Portal";
 import Image from "next/image";
 import Search from "./Search";
+import useHorizontalScroll from "@/utils/horizontalScroll";
 
 interface SearchPageProps {
   onDismiss: () => void;
@@ -20,11 +21,13 @@ const SearchPage = ({ onDismiss }: SearchPageProps) => {
     setTimeout(onDismiss, 100);
   };
 
+  const horizontalScrollDivRef = useHorizontalScroll();
+
   return (
     <Portal>
       <div className="mb-[54px] absolute top-0 bottom-0 left-0 right-0 w-[393px] mx-auto overflow-hidden">
         <div
-          className={`bg-main-bg transition-transform duration-200 h-full px-2 pt-6 ${
+          className={`bg-main-bg h-full overflow-y-auto no-scrollbar px-2 pt-6 transition-transform duration-200 ${
             isVisible ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -45,7 +48,10 @@ const SearchPage = ({ onDismiss }: SearchPageProps) => {
             }`}
           >
             <h3 className="font-bold">popular options</h3>
-            <div className="grid grid-flow-col gap-2 my-6 overflow-x-auto no-scrollbar">
+            <div
+              ref={horizontalScrollDivRef}
+              className="grid grid-flow-col gap-2 my-6 overflow-x-auto no-scrollbar"
+            >
               <OptionButton option="country1" />
               <OptionButton option="blogger1" />
               <OptionButton option="creator2" />

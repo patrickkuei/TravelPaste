@@ -1,6 +1,6 @@
 export const routeNameMap = new Map<string, string>([
   ['/', 'Homepage'],
-  ['/wishlist', 'Wishlist'],
+  ['/wishlist', 'Next Journey'],
   ['/posts', 'Posts'],
   ['/account', 'Profile & Settings'],
   ['/signup', 'Create account'],

@@ -1,56 +1,43 @@
 "use client";
 
-import React, { useLayoutEffect, useRef, useState } from "react";
-import PostSkeleton from "./PostSkeleton";
+import React, { useCallback, useRef } from "react";
 
 type Props = {
   content: string;
 };
 
 function PostContent({ content: propContent }: Props) {
-  const contentRef = useRef(null);
-  const readMoreRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useLayoutEffect(() => {
-    if (contentRef.current) {
-      const pElement = contentRef.current as HTMLParagraphElement;
-      const readMoreElement = readMoreRef.current as unknown as HTMLSpanElement;
-
-      if (pElement.clientHeight < pElement.scrollHeight) {
-        readMoreElement.style.display = "inline";
-      }
+  const contentRef = useRef<HTMLParagraphElement | null>(null);
+  const contentRefCallBack = useCallback((node: HTMLParagraphElement) => {
+    if (node) {
+      contentRef.current = node;
     }
-
-    setIsLoading(false);
   }, []);
 
-  const handleReadMore = () => {
-    if (contentRef.current) {
+  const readMoreRefCallBack = useCallback((node: HTMLSpanElement) => {
+    if (node) {
       const pElement = contentRef.current as HTMLParagraphElement;
-      pElement.style.maxHeight = "none";
-      pElement.classList.remove("line-clamp-6");
-      const readMoreElement = readMoreRef.current as unknown as HTMLSpanElement;
-      readMoreElement.style.display = "none";
+      if (pElement.clientHeight < pElement.scrollHeight) {
+        node.style.display = "inline";
+      }
+
+      node.onclick = () => {
+        pElement.style.maxHeight = "none";
+        pElement.classList.remove("line-clamp-6");
+        node.style.display = "none";
+      };
     }
-  };
+  }, []);
 
   return (
     <>
-      {isLoading && <PostSkeleton />}
       <p
-        ref={contentRef}
-        className={`text-sm line-clamp-6 max-h-[180px] ${
-          isLoading ? "invisible" : ""
-        }`}
+        ref={contentRefCallBack}
+        className={`text-sm line-clamp-6 max-h-[180px]`}
       >
         {propContent}
       </p>
-      <span
-        ref={readMoreRef}
-        className="text-sm text-[#B0B0B0] hidden"
-        onClick={handleReadMore}
-      >
+      <span ref={readMoreRefCallBack} className="text-sm text-[#B0B0B0] hidden">
         Read More
       </span>
     </>
