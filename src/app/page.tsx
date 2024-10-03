@@ -1,13 +1,24 @@
 "use client";
 
 import Post from "./Post";
-import MockPosts from "@/mocks/mockPosts";
-import { MouseEvent, useCallback, useEffect, useRef, useState } from "react";
+import MockPosts, { Data } from "@/mocks/mockPosts";
+import {
+  MouseEvent,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import SearchPage from "./SearchPage";
 import Image from "next/image";
 
 export default function Home() {
   const [data, setData] = useState(MockPosts);
+  const updateData = useCallback(
+    (cb: SetStateAction<Data[]>) => setData(cb),
+    []
+  );
   const [loading, setLoading] = useState(false);
   const observerRef = useCallback(
     (node: HTMLDivElement) => {
@@ -31,7 +42,10 @@ export default function Home() {
   const loadMoreData = () => {
     setLoading(true);
     setTimeout(() => {
-      setData((prevData) => [...prevData, ...MockPosts]);
+      setData((prevData) => [
+        ...prevData,
+        ...MockPosts.map((post) => ({ ...post, id: crypto.randomUUID() })),
+      ]);
       setLoading(false);
     }, 1000);
   };
@@ -92,7 +106,7 @@ export default function Home() {
         <b>Popular recommendation</b>
       </h4>
       {data.map((post) => (
-        <Post key={post.id} post={post} />
+        <Post key={post.id} post={post} updateData={updateData} />
       ))}
       <div ref={observerRef} className="text-center p-4">
         {loading ? (

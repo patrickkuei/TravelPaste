@@ -1,36 +1,37 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useCallback } from "react";
 import Image from "next/image";
 import MockPostRequest from "@/mocks/mockRequest";
-import debounce from "@/utils/debounce";
+import useDebounce from "@/utils/useDebounce";
 
-type Props = { isFavourate: boolean; id: string; likedCount: number };
+type Props = {
+  isFavourate: boolean;
+  id: string;
+  likedCount: number;
+  onClick: () => void;
+};
 
 const FavourateButton = ({
-  isFavourate: propIsFavourate,
+  isFavourate,
   id: postId,
   likedCount,
+  onClick,
 }: Props) => {
-  const [isFavourate, setIsFavourate] = useState(propIsFavourate);
+  const postFavorateData = useCallback(async () => {
+    try {
+      const res = await MockPostRequest(postId, !isFavourate);
+      console.log(res);
+    } catch (error) {
+      console.error(error);
+    }
+  }, [isFavourate, postId]);
 
-  const setIsFavourateDebounce = useMemo(
-    () =>
-      debounce(async () => {
-        try {
-          const res = await MockPostRequest(postId);
-
-          console.log(res);
-        } catch (error) {
-          console.error(error);
-        }
-      }, 500),
-    [postId]
-  );
+  const toggleFavourateDebounce = useDebounce(postFavorateData, 500);
 
   const handleFavourateClick = () => {
-    setIsFavourate((prev) => !prev);
-    setIsFavourateDebounce();
+    onClick();
+    toggleFavourateDebounce();
   };
 
   return (

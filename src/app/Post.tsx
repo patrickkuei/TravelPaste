@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { SetStateAction } from "react";
 import FavourateButton from "./FavourateButton";
 import { Data } from "@/mocks/mockPosts";
 import { formatDate } from "@/utils/dateUtils";
@@ -7,6 +7,7 @@ import PostContent from "./PostContent";
 
 type Props = {
   post: Data;
+  updateData: (cb: SetStateAction<Data[]>) => void;
 };
 
 function Post({
@@ -21,7 +22,26 @@ function Post({
     sharedCount,
     createdAt,
   },
+  updateData,
 }: Props) {
+  const handleFavourateClick = () => {
+    updateData((prev) => {
+      const newData = prev.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            isFavourate: !item.isFavourate,
+            likedCount: item.isFavourate
+              ? item.likedCount - 1
+              : item.likedCount + 1,
+          };
+        }
+        return item;
+      });
+      return newData;
+    });
+  };
+
   return (
     <div className="w-full relative shadow-[1px_1px_10px_rgba(177,163,204,0.75)] p-3 flex flex-col">
       <div className="absolute right-3 top-3 flex gap-2">
@@ -38,6 +58,7 @@ function Post({
           isFavourate={isFavourate}
           id={id}
           likedCount={likedCount}
+          onClick={handleFavourateClick}
         />
       </div>
       <div className="flex gap-3 mb-4">
