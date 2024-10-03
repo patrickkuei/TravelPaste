@@ -50,7 +50,7 @@ const SearchPage = ({ onDismiss }: SearchPageProps) => {
             <h3 className="font-bold">popular options</h3>
             <div
               ref={horizontalScrollDivRef}
-              className="grid grid-flow-col gap-2 my-6 overflow-x-auto no-scrollbar"
+              className="flex gap-2 my-6 overflow-x-auto no-scrollbar"
             >
               <OptionButton option="country1" />
               <OptionButton option="blogger1" />
@@ -101,7 +101,7 @@ const OptionButton = ({ option }: { option: string }) => {
 
   return (
     <button
-      className="bg-[#A6B1E1] py-2 px-4 rounded-full text-white font-bold w-fit leading-none"
+      className="bg-[#A6B1E1] py-2 px-4 rounded-full text-white font-bold min-w-fit leading-none relative overflow-hidden after:transition-all after:duration-500 after:content-[''] after:absolute after:left-0 after:top-0 after:h-[150%] after:bg-[#42487436] after:w-[150%] after:opacity-0 active:after:w-0 active:after:opacity-100 active:after:transition-none active:after:duration-0"
       onClick={handleCountryClick}
     >
       {option}
@@ -119,7 +119,7 @@ const CountryButton = ({ country }: { country: string }) => {
   return (
     <button
       onClick={handleCountryClick}
-      className="text-left flex gap-[12px] ml-2"
+      className="text-left flex gap-[12px] ml-2 relative overflow-hidden after:transition-all after:duration-500 after:content-[''] after:absolute after:left-0 after:top-0 after:h-[150%] after:bg-[#42487436] after:w-[150%] after:opacity-0 active:after:w-0 active:after:opacity-100 active:after:transition-none active:after:duration-0"
     >
       <Image
         width={24}
@@ -142,7 +142,7 @@ const BloggerButton = ({ blogger }: { blogger: string }) => {
   return (
     <button
       onClick={handleBloggerClick}
-      className="text-left flex gap-[12px] ml-2 items-center"
+      className="text-left flex gap-[12px] ml-2 items-center relative overflow-hidden rounded-l-full after:transition-all after:duration-500 after:content-[''] after:absolute after:left-0 after:top-0 after:h-[150%] after:bg-[#42487436] after:w-[150%] after:opacity-0 active:after:w-0 active:after:opacity-100 active:after:transition-none active:after:duration-0"
     >
       <Image
         width={40}

@@ -12,6 +12,7 @@ import {
 } from "react";
 import SearchPage from "./SearchPage";
 import Image from "next/image";
+import PageContainer from "./PageContainer";
 
 export default function Home() {
   const [data, setData] = useState(MockPosts);
@@ -74,19 +75,8 @@ export default function Home() {
     setIsSearchClick(false);
   };
 
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timeoutId);
-  }, []);
-
   return (
-    <div
-      className={`mt-[56px] mb-[54px] overflow-y-auto no-scrollbar w-full p-4 flex flex-col gap-4 transition-transform duration-200 ${
-        isVisible ? "translate-x-0" : "translate-x-full"
-      }`}
-    >
+    <PageContainer>
       <div
         className={`flex bg-white py-1 rounded-[10px] ring-1 ring-inset ring-gray-200 text-[#9E9E9E] transition duration-150 ease-out ${
           isSearchClick ? "outline-none ring-1 ring-inset ring-gray-600" : ""
@@ -118,6 +108,6 @@ export default function Home() {
       {setShouldShowSearchPage && (
         <SearchPage onDismiss={handleCloseSearchPage} />
       )}
-    </div>
+    </PageContainer>
   );
 }
