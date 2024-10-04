@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useRef } from "react";
+import { useCallback, useRef } from "react";
 
 type Props = {
   content: string;

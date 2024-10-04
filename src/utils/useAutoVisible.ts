@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 const useAutoVisible = (duration = 100) => {
     const [isVisible, setIsVisible] = useState(false)

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -34,9 +33,9 @@ function Footer() {
   return (
     <div className="fixed bottom-0 flex justify-center items-center w-inherit h-[53px] bg-section-bg">
       <Button
-        href="/"
+        href="/home"
         title="Home"
-        iconSrc={`/icons/mono_home${pathname === "/" ? "_fill" : ""}.svg`}
+        iconSrc={`/icons/mono_home${pathname === "/home" ? "_fill" : ""}.svg`}
       />
       <Button
         href="/wishlist"

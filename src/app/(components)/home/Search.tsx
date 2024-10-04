@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef } from "react";
 import Image from "next/image";
+import { useRef } from "react";
 
 const Search = () => {
   const inputRef = useRef<HTMLInputElement>(null);

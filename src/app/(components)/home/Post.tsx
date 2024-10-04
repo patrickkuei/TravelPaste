@@ -1,8 +1,8 @@
-import Image from "next/image";
-import React, { SetStateAction } from "react";
-import FavourateButton from "./FavourateButton";
 import { Data } from "@/mocks/mockPosts";
 import { formatDate } from "@/utils/dateUtils";
+import Image from "next/image";
+import { SetStateAction } from "react";
+import FavourateButton from "./FavourateButton";
 import PostContent from "./PostContent";
 
 type Props = {

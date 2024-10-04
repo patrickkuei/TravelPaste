@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useCallback } from "react";
-import Image from "next/image";
 import MockPostRequest from "@/mocks/mockRequest";
 import useDebounce from "@/utils/useDebounce";
+import Image from "next/image";
+import { useCallback } from "react";
 
 type Props = {
   isFavourate: boolean;

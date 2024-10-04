@@ -1,8 +1,7 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import React from "react";
 import { routeNameMap } from "@/constants/routes";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const pathname = usePathname();

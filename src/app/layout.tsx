@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./Header";
-import Footer from "./Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,13 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex justify-center w-screen h-screen overflow-hidden select-none">
-          <div className="flex justify-center w-[393px] bg-main-bg overflow-hidden">
-            <Header />
-            {children}
-            <Footer />
-          </div>
-        </div>
+        {children}
         <div id="portal-root" />
       </body>
     </html>

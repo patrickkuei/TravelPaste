@@ -1,5 +1,3 @@
-import React from "react";
-
 function PostSkeleton() {
   return (
     <div className="space-y-4 animate-pulse ">

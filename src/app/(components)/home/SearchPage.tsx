@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Portal from "./Portal";
-import Image from "next/image";
-import Search from "./Search";
 import useHorizontalScroll from "@/utils/horizontalScroll";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import Portal from "../Portal";
+import Search from "./Search";
 
 interface SearchPageProps {
   onDismiss: () => void;
