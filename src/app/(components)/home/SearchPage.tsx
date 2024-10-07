@@ -101,7 +101,7 @@ const OptionButton = ({ option }: { option: string }) => {
 
   return (
     <button
-      className="bg-[#A6B1E1] py-2 px-4 rounded-full text-white font-bold min-w-fit leading-none relative overflow-hidden after:transition-all after:duration-500 after:content-[''] after:absolute after:left-0 after:top-0 after:h-[150%] after:bg-[#42487436] after:w-[150%] after:opacity-0 active:after:w-0 active:after:opacity-100 active:after:transition-none active:after:duration-0"
+      className="bg-[#A6B1E1] py-2 px-4 rounded-full text-white font-bold min-w-fit leading-none active:bg-[#8c96c4]"
       onClick={handleCountryClick}
     >
       {option}

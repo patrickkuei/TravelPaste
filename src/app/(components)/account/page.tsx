@@ -7,17 +7,15 @@ import PageContainer from "../PageContainer";
 const page = () => {
   return (
     <PageContainer className="[&&]:gap-0 divide-y-2 divide-[#a6b1e138]">
-      <AccountButton
-        title="Lydia Donin"
-        leadingIcon={
-          <Image
-            width={40}
-            height={40}
-            src="/icons/thumbnail_example.svg"
-            alt="account"
-          />
-        }
-      />
+      <div className="h-[68px] leading-[68px] flex items-center gap-6 p-3">
+        <Image
+          width={40}
+          height={40}
+          src="/icons/thumbnail_example.svg"
+          alt="account"
+        />
+        Lydia Donin
+      </div>
       <AccountButton
         title="Personal info"
         leadingIcon={

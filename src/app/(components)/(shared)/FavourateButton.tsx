@@ -10,6 +10,7 @@ type Props = {
   id: string;
   likedCount: number;
   onClick: () => void;
+  className?: string;
 };
 
 const FavourateButton = ({
@@ -17,6 +18,7 @@ const FavourateButton = ({
   id: postId,
   likedCount,
   onClick,
+  className: propClassName,
 }: Props) => {
   const postFavorateData = useCallback(async () => {
     try {
@@ -34,8 +36,10 @@ const FavourateButton = ({
     toggleFavourateDebounce();
   };
 
+  const className = propClassName ?? "";
+
   return (
-    <button onClick={handleFavourateClick}>
+    <button className={className} onClick={handleFavourateClick}>
       <Image
         width={24}
         height={24}

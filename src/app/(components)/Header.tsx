@@ -7,7 +7,7 @@ const Header = () => {
   const pathname = usePathname();
   return (
     <div className="fixed top-0 flex justify-center items-center w-inherit h-[56px]">
-      <h1>{routeNameMap.get(pathname)}</h1>
+      <h1 className="font-bold">{routeNameMap.get(pathname)}</h1>
     </div>
   );
 };
