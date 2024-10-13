@@ -31,10 +31,7 @@ const WishButton = ({ wish }: { wish: string }) => {
         sizes="100vw"
         width={0}
         height={0}
-        style={{
-          width: "100%",
-          height: "auto",
-        }}
+        className="w-full h-auto"
       />
     </div>
   );

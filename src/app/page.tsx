@@ -7,7 +7,7 @@ const Entry = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => router.push("/home"), 3000);
+    const timeoutId = setTimeout(() => router.replace("/login"), 3000);
     return () => clearTimeout(timeoutId);
   }, [router]);
 
