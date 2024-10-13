@@ -23,7 +23,10 @@ const WishButton = ({ wish }: { wish: string }) => {
   };
 
   return (
-    <div className="flex flex-col gap-1" onClick={handleWishClick}>
+    <div
+      className="flex flex-col gap-1 hover:cursor-pointer"
+      onClick={handleWishClick}
+    >
       <h4>{wish}</h4>
       <Image
         src={`/thumbnails/${wish}.svg`}

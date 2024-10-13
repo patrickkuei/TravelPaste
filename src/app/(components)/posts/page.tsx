@@ -47,7 +47,7 @@ const page = () => {
               <span>{post.likedCount}</span>
             </div>
             <div className="flex items-center">
-              <span className="active:bg-[#bfb9dd8f] px-3 h-full flex items-center">
+              <span className="active:bg-[#bfb9dd8f] px-3 h-full flex items-center hover:cursor-pointer">
                 <Image
                   width={24}
                   height={24}
@@ -55,7 +55,7 @@ const page = () => {
                   alt="icon"
                 />
               </span>
-              <span className="active:bg-[#bfb9dd8f] px-3 h-full  flex items-center">
+              <span className="active:bg-[#bfb9dd8f] px-3 h-full  flex items-center hover:cursor-pointer">
                 <Image
                   width={24}
                   height={24}
@@ -67,7 +67,7 @@ const page = () => {
           </div>
         </div>
       ))}
-      <div className="sticky bottom-0 left-full w-[50px] min-h-[50px] flex justify-center items-center bg-white rounded-full shadow-[1px_1px_10px_rgba(0,0,0,0.3)] active:bg-[#e7e7ea]">
+      <div className="sticky bottom-0 left-full w-[50px] min-h-[50px] flex justify-center items-center bg-white rounded-full shadow-[1px_1px_10px_rgba(0,0,0,0.3)] active:bg-[#e7e7ea] hover:cursor-pointer">
         <Image
           src="/icons/mono_add.svg"
           alt="icon"

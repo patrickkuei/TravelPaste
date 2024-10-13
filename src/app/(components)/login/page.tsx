@@ -42,7 +42,7 @@ const Login = () => {
         </div>
         <input
           value="Log in"
-          className={`w-[200px] h-[50px] rounded-full self-center font-bold text-white peer-invalid:bg-gray-300 peer-invalid:pointer-events-none ${"bg-[#A6B1E1]"}`}
+          className={`w-[200px] h-[50px] rounded-full self-center font-bold text-white hover:cursor-pointer peer-invalid:bg-gray-300 peer-invalid:pointer-events-none ${"bg-[#A6B1E1]"}`}
           type="submit"
         />
       </form>

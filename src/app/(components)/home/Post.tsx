@@ -45,7 +45,7 @@ function Post({
   return (
     <div className="w-full relative shadow-[1px_1px_10px_rgba(177,163,204,0.75)] p-3 flex flex-col">
       <div className="absolute right-3 top-3 flex gap-2">
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center hover:cursor-pointer">
           <Image
             width={24}
             height={24}

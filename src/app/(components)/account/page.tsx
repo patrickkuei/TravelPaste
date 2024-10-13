@@ -103,7 +103,7 @@ const AccountButton = ({
 
   return (
     <div
-      className="h-[68px] leading-[68px] flex items-center gap-3 p-3 relative after:transition-all after:duration-500 after:content-[''] after:absolute after:left-[-10%] after:h-full after:bg-[#42487436] after:w-[300%] after:opacity-0 active:after:w-0 active:after:opacity-100 active:after:transition-none active:after:duration-0"
+      className="h-[68px] leading-[68px] flex items-center gap-3 p-3 hover:cursor-pointer relative after:transition-all after:duration-500 after:content-[''] after:absolute after:left-[-10%] after:h-full after:bg-[#42487436] after:w-[300%] after:opacity-0 active:after:w-0 active:after:opacity-100 active:after:transition-none active:after:duration-0"
       onClick={handleClick}
     >
       {leadingIcon}

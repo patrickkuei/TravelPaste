@@ -37,7 +37,10 @@ function PostContent({ content: propContent }: Props) {
       >
         {propContent}
       </p>
-      <span ref={readMoreRefCallBack} className="text-sm text-[#B0B0B0] hidden">
+      <span
+        ref={readMoreRefCallBack}
+        className="text-sm text-[#B0B0B0] hidden hover:cursor-pointer w-fit"
+      >
         Read More
       </span>
     </>

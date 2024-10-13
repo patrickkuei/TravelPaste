@@ -78,7 +78,7 @@ export default function Home() {
   return (
     <PageContainer>
       <div
-        className={`flex bg-white py-1 rounded-[10px] ring-1 ring-inset ring-gray-200 text-[#9E9E9E] transition duration-150 ease-out ${
+        className={`flex bg-white py-1 rounded-[10px] ring-1 ring-inset ring-gray-200 text-[#9E9E9E]  hover:cursor-pointer transition duration-150 ease-out ${
           isSearchClick ? "outline-none ring-1 ring-inset ring-gray-600" : ""
         }`}
         onClick={handleSearchClick}
